@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -x
 VERSION=$(git describe --tags)
 
 cat > dkms.conf <<EOF
@@ -12,6 +12,7 @@ DEST_MODULE_LOCATION[0]="/updates"
 AUTOINSTALL="yes"
 EOF
 
+cat dkms.conf
 mkdir -p dkms
 mkdir -p src
 dkms add . --dkmstree $PWD/dkms --sourcetree $PWD/src
