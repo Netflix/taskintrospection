@@ -1,5 +1,6 @@
 #!/bin/bash -x
-VERSION=$(git describe --tags)
+
+export VERSION=$(git describe --tags)
 
 cat > dkms.conf <<EOF
 PACKAGE_NAME="taskintrospection"
