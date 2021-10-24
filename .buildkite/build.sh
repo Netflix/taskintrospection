@@ -17,5 +17,5 @@ cat dkms.conf
 mkdir -p dkms
 mkdir -p src
 dkms add . --dkmstree $PWD/dkms --sourcetree $PWD/src
-dkms mkdeb -m taskintrospection -v 0.1 --dkmstree $PWD/dkms --sourcetree $PWD/src
+dkms mkdeb -m taskintrospection -v $VERSION --dkmstree $PWD/dkms --sourcetree $PWD/src
 
