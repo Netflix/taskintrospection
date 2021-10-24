@@ -1,0 +1,16 @@
+steps:
+  - command: ./.buildkite/build.sh
+    artifact_paths: "*.log;build/distributions/*.deb;build/distributions/*.tar;build/distributions/*.tar.gz;*.out"
+  - wait
+  - trigger: titus-upload-debs
+    async: false
+    branches:
+      - master
+      - prefix-delegation
+    build:
+      env:
+        CALLER_BUILD_ID: "${BUILDKITE_BUILD_ID}"
+        CALLER_JOB_ID: "${BUILDKITE_JOB_ID}"
+        CALLER_UPLOAD_DEB: "build/distributions/titus-executor_latest.deb"
+        CALLER_PACKAGE_NAME: "titus-executor"
+        BUILDKITE_CLEAN_CHECKOUT: "true"
