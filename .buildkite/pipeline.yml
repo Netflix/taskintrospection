@@ -1,7 +1,10 @@
 steps:
   - command: cd hacks && docker build -t taskintrospection-build .
   - wait
-  
+  - command: dkms mkdeb
+    plugins:
+      - docker#v3.2.0:
+          image: "taskintrospection-build:latest"
   #- command: ./.buildkite/build.sh
   #  artifact_paths: "*.log;build/distributions/*.deb;build/distributions/*.tar;build/distributions/*.tar.gz;*.out"
   #- wait
