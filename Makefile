@@ -13,7 +13,7 @@ clean:
 
 .PHONY:
 fmt:
-	clang-format -i src/*.c src/*.h
+	clang-format -i src/*.c
 	jsonnetfmt -i nfpm.jsonnet
 
 .PHONY: package
