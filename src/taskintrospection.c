@@ -12,6 +12,7 @@
 MODULE_DESCRIPTION("Task Introspection API");
 MODULE_AUTHOR("Sargun Dhillon <sargun@sargun.me>");
 MODULE_LICENSE("Dual BSD/GPL");
+MODULE_ALIAS_NET_PF_PROTO_NAME(PF_NETLINK, NETLINK_GENERIC, TASKINTROSPECTION_GENL_NAME);
 
 static struct genl_family genl_family;
 
