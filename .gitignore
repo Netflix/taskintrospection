@@ -39,3 +39,4 @@
 *.zst
 Module.symvers
 modules.order
+!.buildkite
