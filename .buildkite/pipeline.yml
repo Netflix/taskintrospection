@@ -6,18 +6,15 @@ steps:
     plugins:
       - docker#v3.9.0:
           image: "taskintrospection-build:latest"
-
-  #- command: 
-  # 
-  #- wait
-  #- trigger: titus-upload-debs
-  #  async: false
-  ##  branches:
-  #    - master
-  #  build:
-  #    env:
-  #      CALLER_BUILD_ID: "${BUILDKITE_BUILD_ID}"
-  #      CALLER_JOB_ID: "${BUILDKITE_JOB_ID}"
-  #      CALLER_UPLOAD_DEB: "build/distributions/titus-executor_latest.deb"
-  #      CALLER_PACKAGE_NAME: "titus-executor"
-  #      BUILDKITE_CLEAN_CHECKOUT: "true"
+  - wait
+  - trigger: titus-upload-debs
+    async: false
+    branches:
+      - master
+    build:
+      env:
+        CALLER_BUILD_ID: "${BUILDKITE_BUILD_ID}"
+        CALLER_JOB_ID: "${BUILDKITE_JOB_ID}"
+        CALLER_UPLOAD_DEB: "build/taskintrospection_latest.deb"
+        CALLER_PACKAGE_NAME: "taskintrospection"
+        BUILDKITE_CLEAN_CHECKOUT: "true"

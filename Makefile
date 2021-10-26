@@ -19,7 +19,7 @@ fmt:
 .PHONY: package
 package: tmp/dkms.conf tmp/nfpm.yaml tmp/postInstall.sh tmp/preRemove.sh
 	mkdir -p build/
-	nfpm package --packager deb --config tmp/nfpm.yaml --target build/
+	nfpm package --packager deb --config tmp/nfpm.yaml --target build/taskintrospection_latest.deb
 
 .PHONY: tmp/postInstall.sh
 tmp/postInstall.sh: tmp
