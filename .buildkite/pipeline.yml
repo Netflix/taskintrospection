@@ -7,8 +7,6 @@ steps:
       - docker#v3.9.0:
           image: taskintrospection-build:${BUILDKITE_BUILD_ID}
   - wait
-  - command: make kbuild
-  - wait
   - trigger: titus-upload-debs
     async: false
     branches:
