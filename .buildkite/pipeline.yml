@@ -1,11 +1,11 @@
 steps:
-  - command: cd hacks && docker build -t taskintrospection-build .
+  - command: cd hacks && docker build -t taskintrospection-build:${BUILDKITE_BUILD_ID} .
   - wait
   - command: make package
     artifact_paths: "build/*.deb"
     plugins:
       - docker#v3.9.0:
-          image: "taskintrospection-build:latest"
+          image: taskintrospection-build:${BUILDKITE_BUILD_ID}
   - wait
   - trigger: titus-upload-debs
     async: false
