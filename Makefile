@@ -21,6 +21,7 @@ fmt:
 .PHONY: package
 package: tmp/dkms.conf tmp/nfpm.yaml tmp/postInstall.sh tmp/preRemove.sh
 	make -C $(KDIR) M=`pwd`/src clean || true
+	mkdir -p build
 	nfpm package --packager deb --config tmp/nfpm.yaml --target build/taskintrospection_latest.deb
 
 .PHONY: tmp/postInstall.sh
