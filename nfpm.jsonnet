@@ -21,16 +21,12 @@ std.manifestYamlDoc({
       dst: srcdir + 'dkms.conf',
     },
     {
-      src: 'src/taskintrospection.c',
-      dst: srcdir + 'taskintrospection.c',
+      src: 'src',
+      dst: srcdir,
     },
     {
-      src: 'src/taskintrospection.h',
-      dst: srcdir + 'taskintrospection.h',
-    },
-    {
-      src: 'src/Kbuild',
-      dst: srcdir + 'Kbuild',
+      src: 'src/include/uapi',
+      dst: '/usr/include/taskintrospection',
     },
   ],
 }, indent_array_in_object=true)

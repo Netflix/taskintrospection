@@ -7,9 +7,11 @@ kbuild:
 	make -C $(KDIR) M=`pwd`/src
 
 .PHONY: clean
-clean:
+clean: kclean
+
+.PHONY:
+kclean:
 	make -C $(KDIR) M=`pwd`/src clean
-	rm -r root
 
 .PHONY:
 fmt:
@@ -18,7 +20,8 @@ fmt:
 
 .PHONY: package
 package: tmp/dkms.conf tmp/nfpm.yaml tmp/postInstall.sh tmp/preRemove.sh
-	mkdir -p build/
+	make -C $(KDIR) M=`pwd`/src clean || true
+	mkdir -p build
 	nfpm package --packager deb --config tmp/nfpm.yaml --target build/taskintrospection_latest.deb
 
 .PHONY: tmp/postInstall.sh
