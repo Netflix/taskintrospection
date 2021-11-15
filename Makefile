@@ -19,8 +19,8 @@ fmt:
 	jsonnetfmt -i nfpm.jsonnet
 
 .PHONY: package
-package: kclean tmp/dkms.conf tmp/nfpm.yaml tmp/postInstall.sh tmp/preRemove.sh
-	mkdir -p build/
+package: tmp/dkms.conf tmp/nfpm.yaml tmp/postInstall.sh tmp/preRemove.sh
+	make -C $(KDIR) M=`pwd`/src clean || true
 	nfpm package --packager deb --config tmp/nfpm.yaml --target build/taskintrospection_latest.deb
 
 .PHONY: tmp/postInstall.sh
