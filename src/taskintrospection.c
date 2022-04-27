@@ -127,6 +127,7 @@ static struct genl_family genl_family = {
 	.version = TASKINTROSPECTION_GENL_VERSION,
 	.module = THIS_MODULE,
 	.netnsok = true,
+	.parallel_ops = true,
 };
 
 static int taskintrospection_init(void)
